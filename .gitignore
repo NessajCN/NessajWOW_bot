@@ -127,3 +127,22 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Cython debug symbols
+cython_debug/
+
+# qqbot
+config.y*ml
+tests/.test.yaml
+qqbot.log.*
+temp/
+
+# idea config
+.idea
+
+# config & test
+test.*
+config.js
+
+# channel data json
+*.json
