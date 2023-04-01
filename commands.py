@@ -38,7 +38,7 @@ async def register(api: BotAPI, message: Message, params=None):
     if resp["success"] == True:
         await message.reply(content=msg_success)
     elif "faultString" in resp["message"] and "already exist" in resp["message"]["faultString"]:
-        await message.reply(msg_existed)
+        await message.reply(content=msg_existed)
     await message.reply(content="注册失败")
     # 第二种用api.post_message发送消息
     # await api.post_message(channel_id=message.channel_id, content=message.content, msg_id=message.id)
