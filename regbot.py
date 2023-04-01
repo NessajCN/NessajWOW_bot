@@ -174,7 +174,7 @@ class RegClient(botpy.Client):
         # 注册指令handler
         handlers = [
             # commands.register,
-            # commands.info,
+            commands.info,
             commands.help,
             # commands.pwd
         ]
