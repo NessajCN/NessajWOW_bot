@@ -1,2 +1,2 @@
 # STEM_bot
-QQ bot for STEM channel
+QQ bot for NessajWOW.

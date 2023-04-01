@@ -1,4 +1,7 @@
-prefix: "!"
+prefix: "/"
 token:
   appid: "XXX"
   token: "YYYYYYYYYYYYYYYYY"
+
+auth: 12345sdrfwer
+apiurl: http://example.com/api
