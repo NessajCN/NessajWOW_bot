@@ -56,7 +56,7 @@ async def help(api: BotAPI, message: Message, params=None):
     _log.info(f"message: {message}\nparams:{params}")
 
     # 第一种用reply发送消息
-    await message.reply(content="详细帮助请私信本机器人，并输入 [/info] 指令。")
+    await message.reply(content="详细帮助请输入 [/info] 指令。")
     # 第二种用api.post_message发送消息
     # await api.post_message(channel_id=message.channel_id, content=message.content, msg_id=message.id)
     return True
