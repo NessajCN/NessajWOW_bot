@@ -1,0 +1,8 @@
+# 汉化补丁
+
+上述客户端的汉化补丁可以从这里下载
+
+aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2RyaXZlL2ZvbGRlcnMvMUo4TkJoUFZhZFhxOER1blVlTFNzT0kzNVg2Uks2TUNw
+
+如果你因为种种原因下不了，可以私信我给你传一份。
+所有链接不得已用base64加密，请谅解。

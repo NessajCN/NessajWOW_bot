@@ -187,7 +187,7 @@ class RegClient(botpy.Client):
             commands.register,
             commands.info,
             commands.help,
-            commands.pwd
+            # commands.pwd
         ]
         for handler in handlers:
             if await handler(api=self.api, message=message):
