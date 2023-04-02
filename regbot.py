@@ -173,7 +173,7 @@ class RegClient(botpy.Client):
     async def on_message_create(self, message: Message):
         # 注册指令handler
         handlers = [
-            # commands.register,
+            commands.register,
             commands.info,
             commands.help,
             # commands.pwd

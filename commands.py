@@ -6,8 +6,8 @@ import botpy
 from botpy import logging, BotAPI
 
 from botpy.ext.command_util import Commands
-from botpy.message import Message
-from botpy.types.message import MarkdownPayload, MessageMarkdownParams
+from botpy.message import Message, DirectMessage
+# from botpy.types.message import MarkdownPayload, MessageMarkdownParams
 
 from botpy.ext.cog_yaml import read
 
@@ -28,10 +28,12 @@ def postcommand(command: str):
 
 
 @Commands(name=("/注册", "/register"))
-async def register(api: BotAPI, message: Message, params=None):
+async def register(api: BotAPI, message: Message | DirectMessage, params=None):
     _log.info(f"message: {message}\nparams:{params}")
     # 第一种用reply发送消息
-
+    if not isinstance(message, DirectMessage) or message.direct_message != True:
+        await message.reply(content="请不要在公共频道使用[/注册]指令，你也不想账号密码被广播对吧~")
+        return True
     cmd = f"account create {message.author.username} {message.author.id[-6:]}"
     msg_success = f"已成功注册: \n用户名: {message.author.username}\n密码: {message.author.id[-6:]}\n请进入游戏后用在聊天栏输入 [.account set <旧密码> <新密码> <新密码>] 来修改密码。注意新密码要打两遍。"
     msg_existed = f"用户名: {message.author.username}已被注册，请不要重复注册。"
@@ -52,7 +54,7 @@ async def register(api: BotAPI, message: Message, params=None):
 
 
 @Commands(name=("/帮助", "/help"))
-async def help(api: BotAPI, message: Message, params=None):
+async def help(api: BotAPI, message: Message | DirectMessage, params=None):
     _log.info(f"message: {message}\nparams:{params}")
 
     # 第一种用reply发送消息
@@ -63,7 +65,7 @@ async def help(api: BotAPI, message: Message, params=None):
 
 
 @Commands(name=("/查询", "/info"))
-async def info(api: BotAPI, message: Message, params: str = None):
+async def info(api: BotAPI, message: Message | DirectMessage, params: str = None):
     _log.info(f"message: {message}\nparams:{params}")
     if params == "":
         await message.reply(content="输入以下命令查看具体信息：\n/info reg  # 注册账号\n/info client  # 客户端下载\n/info login  # 登录服务器\n/info locale  # 汉化补丁\n其中所有链接不得已用base64加密，请谅解。")
