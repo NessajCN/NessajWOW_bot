@@ -28,7 +28,8 @@ def postcommand(command: str):
 
 
 @Commands(name=("/账号", "/account"))
-async def account(api: BotAPI, message: Message | DirectMessage, params=None):
+# async def account(api: BotAPI, message: Message | DirectMessage, params=None):
+async def account(api: BotAPI, message, params=None):
     _log.info(f"message: {message}\nparams:{params}")
     # 第一种用reply发送消息
     if not isinstance(message, DirectMessage) or message.direct_message != True:
@@ -54,7 +55,8 @@ async def account(api: BotAPI, message: Message | DirectMessage, params=None):
 
 
 @Commands(name=("/帮助", "/help"))
-async def help(api: BotAPI, message: Message | DirectMessage, params=None):
+# async def help(api: BotAPI, message: Message | DirectMessage, params=None):
+async def help(api: BotAPI, message, params=None):
     _log.info(f"message: {message}\nparams:{params}")
     if params == "":
         await message.reply(content="输入以下命令查看具体教程：\n/help register  # 注册账号\n/help client  # 客户端下载\n/help login  # 登录服务器\n/help locale  # 汉化补丁\n其中所有链接不得已用base64加密，请谅解。")
@@ -71,7 +73,9 @@ async def help(api: BotAPI, message: Message | DirectMessage, params=None):
 
 
 @Commands(name=("/查询", "/info"))
+# async def info(api: BotAPI, message: Message | DirectMessage, params: str = None):
 async def info(api: BotAPI, message: Message | DirectMessage, params: str = None):
+
     _log.info(f"message: {message}\nparams:{params}")
     if params == "":
         await message.reply(content="输入以下命令进行查询：\n/info srvstat  # 服务器状态\n/info motd  # 服务器欢迎信息")
