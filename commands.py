@@ -27,12 +27,12 @@ def postcommand(command: str):
         return {"success": False, "message": "Connection Error"}
 
 
-@Commands(name=("/注册", "/register"))
+@Commands(name=("/账号", "/register"))
 async def register(api: BotAPI, message: Message | DirectMessage, params=None):
     _log.info(f"message: {message}\nparams:{params}")
     # 第一种用reply发送消息
     if not isinstance(message, DirectMessage) or message.direct_message != True:
-        await message.reply(content="请不要在公共频道使用[/注册]指令，你也不想账号密码被广播对吧~")
+        await message.reply(content="请不要在公共频道使用[/账号]指令，你也不想账号密码被广播对吧~")
         return True
     cmd = f"account create {message.author.username} {message.author.id[-6:]}"
     msg_success = f"已成功注册: \n用户名: {message.author.username}\n密码: {message.author.id[-6:]}\n请进入游戏后用在聊天栏输入 [.account set <旧密码> <新密码> <新密码>] 来修改密码。注意新密码要打两遍。"
