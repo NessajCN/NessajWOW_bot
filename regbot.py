@@ -138,7 +138,7 @@ class RegClient(botpy.Client):
     #     _log.info(f"receive message {message.content}" )
 
     #     handlers = [
-    #         commands.register,
+    #         commands.account,
     #         commands.info,
     #         commands.help,
     #         commands.pwd
@@ -173,7 +173,7 @@ class RegClient(botpy.Client):
     async def on_message_create(self, message: Message):
         # 注册指令handler
         handlers = [
-            commands.register,
+            commands.account,
             commands.info,
             commands.help,
             # commands.pwd
@@ -184,7 +184,7 @@ class RegClient(botpy.Client):
 
     async def on_direct_message_create(self, message: DirectMessage):
         handlers = [
-            commands.register,
+            commands.account,
             commands.info,
             commands.help,
             # commands.pwd
