@@ -74,7 +74,7 @@ async def help(api: BotAPI, message, params=None):
 
 @Commands(name=("/查询", "/info"))
 # async def info(api: BotAPI, message: Message | DirectMessage, params: str = None):
-async def info(api: BotAPI, message: Message | DirectMessage, params: str = None):
+async def info(api: BotAPI, message, params: str = None):
 
     _log.info(f"message: {message}\nparams:{params}")
     if params == "":
